@@ -1,0 +1,66 @@
+<?php
+namespace Project\EducationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+ /**
+  * @ORM\Entity
+  * @ORM\Table(name="educations")
+  */
+class Education
+{
+     /**
+      * @var integer $id;
+      * 
+      * @ORM\Id
+      * @ORM\Column(type="integer")
+      * @ORM\GeneratedValue(strategy="AUTO")
+      */
+    protected $id;
+    
+    /**
+    * @var \Project\UserBundle\Entity\User $user;
+    * 
+    * @ORM\ManyToOne(targetEntity="Project\UserBundle\Entity\UserInformation", inversedBy="education")
+    * @ORM\JoinColumn(name="userinformation_id", referencedColumnName="id", onDelete="CASCADE")
+    */
+    protected $user;
+    
+    /**
+     * @var string $schoolName;
+     *
+     * @ORM\Column(type="string")
+     */   
+    protected $schoolName;
+    
+    /**
+     * @var string $schoolType;
+     *
+     * @ORM\Column(type="string")
+     */   
+    protected $schoolType;
+    
+    /**
+     * @var string $graduationYear;
+     *
+     * @ORM\Column(type="string")
+     * @Assert\Type(type="numeric", message="Wprowadź poprawny rok")
+     */   
+    protected $graduationYear;
+    
+    /**
+     * @var string $startYear;
+     *
+     * @ORM\Column(type="string")
+     * @Assert\Type(type="numeric", message="Wprowadź poprawny rok")
+     */   
+    protected $startYear;
+    
+    /**
+     * @var string $city;
+     *
+     * @ORM\Column(type="string")
+     */   
+    protected $city;
+}

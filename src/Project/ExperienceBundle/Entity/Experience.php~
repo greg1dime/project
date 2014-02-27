@@ -1,0 +1,70 @@
+<?php
+namespace Project\ExperienceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+ /**
+  * @ORM\Entity
+  * @ORM\Table(name="users")
+  */
+class Experience
+{
+     /**
+      * @var integer $id;
+      * 
+      * @ORM\Id
+      * @ORM\Column(type="integer")
+      * @ORM\GeneratedValue(strategy="AUTO")
+      */
+    protected $id;
+    
+    /**
+    * @var \Project\UserBundle\Entity\User $user;
+    * 
+    * @ORM\ManyToOne(targetEntity="Project\UserBundle\Entity\UserInformation", inversedBy="experience")
+    * @ORM\JoinColumn(name="userinformation_id", referencedColumnName="id", onDelete="CASCADE")
+    */
+    protected $user;
+    
+    /**
+     * @var string $companyName;
+     *
+     * @ORM\Column(type="string")
+     */   
+    protected $companyName;
+    
+    /**
+     * @var string $position;
+     *
+     * @ORM\Column(type="string")
+     */   
+    protected $position;
+    
+    /**
+     * @var date $sinceDate;
+     *
+     * @ORM\Column(type="date")
+     */   
+    protected $startDate;
+    
+    /**
+     * @var date $startDate;
+     *
+     * @ORM\Column(type="date")
+     */   
+    protected $finishDate;
+    
+    /**
+     * @var string $city;
+     *
+     * @ORM\Column(type="string")
+     */   
+    protected $city;
+
+    /**
+     * @var string $branch;
+     *
+     * @ORM\Column(type="string")
+     */   
+    protected $branch;
+}

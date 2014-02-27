@@ -1,0 +1,121 @@
+<?php
+namespace Project\UserBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use \Doctrine\Common\Collections\ArrayCollection;
+
+ /**
+  * @ORM\Entity
+  * @ORM\Table(name="users_informations")
+  */
+class UserInformation
+{
+     /**
+      * @var integer $id;
+      * 
+      * @ORM\Id
+      * @ORM\Column(type="integer")
+      * @ORM\GeneratedValue(strategy="AUTO")
+      */
+    protected $id;
+    
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection() $user;
+     * 
+     * @ORM\OneToOne(targetEntity="User", inversedBy="informations")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     **/
+    protected $user; 
+    
+    /**
+     * @var string $firstName;
+     *
+     * @ORM\Column(type="string", length=50)
+     */   
+    protected $firstName;
+    
+    /**
+     * @var string $lastName;
+     *
+     * @ORM\Column(type="string", length=50)
+     */
+    protected $lastName;
+    
+    /**
+     * @var date $birthDate;
+     *
+     * @ORM\Column(type="date")
+     */
+    protected $birthDate;
+    
+    /**
+     * @var string $birthPlace;
+     *
+     * @ORM\Column(type="string")
+     */
+    protected $birthPlace;
+    
+    /**
+     * @var string $street;
+     * 
+     * @ORM\Column(type="string")
+     */
+    protected $street;
+    
+    /**
+     * @var string $house_no;
+     * 
+     * @ORM\Column(type="string")
+     * @Assert\Type(type="numeric", message="Wprowadź poprawną liczbę")
+     */  
+    protected $house_no;
+    
+    /**
+     * @var string $apartment_no;
+     * 
+     * @ORM\Column(type="string")
+     * @Assert\Type(type="numeric", message="Wprowadź poprawną liczbę")
+     */  
+    protected $apartment_no;
+    
+    /**
+     * @var string $code;
+     * 
+     * @ORM\Column(type="string")
+     */
+    protected $code;
+    
+    /**
+     * @var string $city;
+     * 
+     * @ORM\Column(type="string")
+     */
+    protected $city;
+    
+    /**
+     * @var string $country;
+     * 
+     * @ORM\Column(type="string")
+     */
+    protected $country;
+    
+    /**
+     * @var string $phone;
+     * 
+     * @ORM\Column(type="string")
+     */
+    protected $phone;
+    
+    /**
+     * @var string $email;
+     * 
+     * @ORM\Column(type="string")
+     */
+    protected $email;
+    
+    public function __construct()
+    {
+        $this->user = new ArrayCollection();
+    }
+}

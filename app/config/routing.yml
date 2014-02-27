@@ -1,0 +1,15 @@
+project_experience:
+    resource: "@ProjectExperienceBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+project_education:
+    resource: "@ProjectEducationBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+project_user:
+    resource: "@ProjectUserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
