@@ -63,6 +63,14 @@ class Education
      * @ORM\Column(type="string")
      */   
     protected $city;
+    
+    /*
+     * ToString
+     */
+    public function __toString()
+    {
+      return $this->getSchoolName();
+    }
 
     /**
      * Get id

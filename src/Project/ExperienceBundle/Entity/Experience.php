@@ -5,7 +5,7 @@ use Doctrine\ORM\Mapping as ORM;
 
  /**
   * @ORM\Entity
-  * @ORM\Table(name="users")
+  * @ORM\Table(name="experiences")
   */
 class Experience
 {
@@ -41,16 +41,16 @@ class Experience
     protected $position;
     
     /**
-     * @var date $sinceDate;
+     * @var datetime $sinceDate;
      *
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */   
     protected $startDate;
     
     /**
-     * @var date $startDate;
+     * @var datetime $startDate;
      *
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */   
     protected $finishDate;
     
@@ -67,6 +67,14 @@ class Experience
      * @ORM\Column(type="string")
      */   
     protected $branch;
+    
+    /*
+     * ToString
+     */
+    public function __toString()
+    {
+      return $this->getCompanyName();
+    }
 
     /**
      * Get id
@@ -127,7 +135,7 @@ class Experience
     /**
      * Set startDate
      *
-     * @param \DateTime $startDate
+     * @param datetime $startDate
      * @return Experience
      */
     public function setStartDate($startDate)
@@ -140,7 +148,7 @@ class Experience
     /**
      * Get startDate
      *
-     * @return \DateTime 
+     * @return datetime 
      */
     public function getStartDate()
     {
@@ -150,7 +158,7 @@ class Experience
     /**
      * Set finishDate
      *
-     * @param \DateTime $finishDate
+     * @param datetime $finishDate
      * @return Experience
      */
     public function setFinishDate($finishDate)
@@ -163,7 +171,7 @@ class Experience
     /**
      * Get finishDate
      *
-     * @return \DateTime 
+     * @return datetime 
      */
     public function getFinishDate()
     {

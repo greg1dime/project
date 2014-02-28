@@ -136,6 +136,14 @@ class UserInformation
         $this->experience = new ArrayCollection();
         $this->education = new ArrayCollection();
     }
+    
+    /*
+     * ToString
+     */
+    public function __toString()
+    {
+      return $this->getFirstName();
+    }
 
     /**
      * Get id
@@ -449,10 +457,10 @@ class UserInformation
     /**
      * Add experience
      *
-     * @param \Project\UserBundle\Entity\Product $experience
+     * @param \Project\ExperienceBundle\Entity\Experience $experience
      * @return UserInformation
      */
-    public function addExperience(\Project\UserBundle\Entity\Product $experience)
+    public function addExperience(\Project\ExperienceBundle\Entity\Experience $experience)
     {
         $this->experience[] = $experience;
 
@@ -462,9 +470,9 @@ class UserInformation
     /**
      * Remove experience
      *
-     * @param \Project\UserBundle\Entity\Product $experience
+     * @param \Project\ExperienceBundle\Entity\Experience $experience
      */
-    public function removeExperience(\Project\UserBundle\Entity\Product $experience)
+    public function removeExperience(\Project\ExperienceBundle\Entity\Experience $experience)
     {
         $this->experience->removeElement($experience);
     }

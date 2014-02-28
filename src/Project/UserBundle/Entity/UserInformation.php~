@@ -449,10 +449,10 @@ class UserInformation
     /**
      * Add experience
      *
-     * @param \Project\UserBundle\Entity\Product $experience
+     * @param \Project\ExperienceBundle\Entity\Experience $experience
      * @return UserInformation
      */
-    public function addExperience(\Project\UserBundle\Entity\Product $experience)
+    public function addExperience(\Project\ExperienceBundle\Entity\Experience $experience)
     {
         $this->experience[] = $experience;
 
@@ -462,9 +462,9 @@ class UserInformation
     /**
      * Remove experience
      *
-     * @param \Project\UserBundle\Entity\Product $experience
+     * @param \Project\ExperienceBundle\Entity\Experience $experience
      */
-    public function removeExperience(\Project\UserBundle\Entity\Product $experience)
+    public function removeExperience(\Project\ExperienceBundle\Entity\Experience $experience)
     {
         $this->experience->removeElement($experience);
     }
@@ -477,5 +477,38 @@ class UserInformation
     public function getExperience()
     {
         return $this->experience;
+    }
+
+    /**
+     * Add education
+     *
+     * @param \Project\EducationBundle\Entity\Education $education
+     * @return UserInformation
+     */
+    public function addEducation(\Project\EducationBundle\Entity\Education $education)
+    {
+        $this->education[] = $education;
+
+        return $this;
+    }
+
+    /**
+     * Remove education
+     *
+     * @param \Project\EducationBundle\Entity\Education $education
+     */
+    public function removeEducation(\Project\EducationBundle\Entity\Education $education)
+    {
+        $this->education->removeElement($education);
+    }
+
+    /**
+     * Get education
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEducation()
+    {
+        return $this->education;
     }
 }

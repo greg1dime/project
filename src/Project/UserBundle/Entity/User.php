@@ -38,6 +38,14 @@ class User
       * @ORM\OneToOne(targetEntity="UserInformation", mappedBy="user")
       **/
     protected $informations;
+    
+    /*
+     * ToString
+     */
+    public function __toString()
+    {
+      return $this->getLogin();
+    }
 
     /**
      * Get id
