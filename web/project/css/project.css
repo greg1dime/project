@@ -1,0 +1,19 @@
+div#shortinfo {
+    height: 25%;
+}
+
+div#photo {
+    padding-top: 5%;
+}
+
+img#profile {
+    height: 250px;
+    width: 250px;
+}
+
+th#separator {
+    width: 33%;
+}
+
+
+

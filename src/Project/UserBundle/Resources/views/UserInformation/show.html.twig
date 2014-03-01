@@ -1,66 +1,70 @@
-{% extends '::base.html.twig' %}
+{% extends 'ProjectUserBundle::layout.html.twig' %}
 
-{% block body -%}
-    <h1>UserInformation</h1>
-
-    <table class="record_properties">
+{% block content -%}
+<div class="col-8 col-sm-8 col-lg-8">
+    <h1>{{ entity.firstName }}{{ entity.lastName}}</h1>
+    <table class="table table-hover">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
+                <th>Data urodzenia:</th>
+                <td>{{ entity.birthDate|date('d.m.Y') }}r.</td>
             </tr>
             <tr>
-                <th>Firstname</th>
-                <td>{{ entity.firstName }}</td>
-            </tr>
-            <tr>
-                <th>Lastname</th>
-                <td>{{ entity.lastName }}</td>
-            </tr>
-            <tr>
-                <th>Birthdate</th>
-                <td>{{ entity.birthDate|date('Y-m-d H:i:s') }}</td>
-            </tr>
-            <tr>
-                <th>Birthplace</th>
+                <th>Miejsce urodzenia:</th>
                 <td>{{ entity.birthPlace }}</td>
             </tr>
             <tr>
-                <th>Street</th>
-                <td>{{ entity.street }}</td>
+                <th>Adres zamieszkania:</th>
+                <td>{{ entity.street }} {{ entity.houseno }}/{{ entity.apartmentno }}</br>
+                {{ entity.code }} {{ entity.city }}, {{ entity.country }}</td>
+            </tr>
             </tr>
             <tr>
-                <th>House_no</th>
-                <td>{{ entity.houseno }}</td>
-            </tr>
-            <tr>
-                <th>Apartment_no</th>
-                <td>{{ entity.apartmentno }}</td>
-            </tr>
-            <tr>
-                <th>Code</th>
-                <td>{{ entity.code }}</td>
-            </tr>
-            <tr>
-                <th>City</th>
-                <td>{{ entity.city }}</td>
-            </tr>
-            <tr>
-                <th>Country</th>
-                <td>{{ entity.country }}</td>
-            </tr>
-            <tr>
-                <th>Phone</th>
+                <th>Numer telefonu:</th>
                 <td>{{ entity.phone }}</td>
             </tr>
             <tr>
-                <th>Email</th>
+                <th>Adres e-mail:</th>
                 <td>{{ entity.email }}</td>
             </tr>
         </tbody>
     </table>
-
-        <ul class="record_actions">
+    <h3>
+        Wykształcenie
+    </h3>
+</div>
+<div class="col-4 col-sm-4 col-lg-4" id="photo">
+    <img src="http://www.justfamous.fr/wp-content/uploads/2013/05/scarlett_johansson_9501_north_626x.jpg" class="img-circle" id="profile">
+</div>
+<div class="col-12 col-sm-12 col-lg-12">
+    <table class="table table-hover">
+        <tbody>
+            {% for education in educations %}
+                <tr>
+                    <th id="separator">{{ education.startYear }} - {{ education.graduationYear }}</th>
+                    <td>{{ education.schoolType }}: {{ education.schoolName }} w {{ education.city }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h3>
+        Doświadczenie
+    </h3>
+</div>
+<div class="col-12 col-sm-12 col-lg-12">
+    <table class="table table-hover">
+        <tbody>
+            {% for experience in experiences %}
+                <tr>
+                    <th id="separator">{{ experience.startDate|date('m.Y') }} - {{ experience.finishDate|date('m.Y') }}</th>
+                    <td>{{ experience.companyName }} w {{ experience.city }} jako: {{ experience.position }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="col-12 col-sm-12 col-lg-12">
+<ul class="record_actions">
     <li>
         <a href="{{ path('project_user_information') }}">
             Back to the list
@@ -73,4 +77,5 @@
     </li>
     <li>{{ form(delete_form) }}</li>
 </ul>
+</div>
 {% endblock %}
