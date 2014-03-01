@@ -15,5 +15,6 @@ th#separator {
     width: 33%;
 }
 
-
-
+body#navbar-padding {
+    padding-top: 40px;
+}
