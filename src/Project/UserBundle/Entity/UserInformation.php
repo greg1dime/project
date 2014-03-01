@@ -115,14 +115,14 @@ class UserInformation
     protected $email;
     
      /**
-      * @var \Doctrine\Common\Collections\ArrayCollection() $experience;
+      * @var ArrayCollection $experience;
       * 
       * @ORM\OneToMany(targetEntity="Project\ExperienceBundle\Entity\Experience", mappedBy="user")
       */
     protected $experience;
     
     /**
-      * @var \Doctrine\Common\Collections\ArrayCollection() $education;
+      * @var ArrayCollection $education;
       * 
       * @ORM\OneToMany(targetEntity="Project\EducationBundle\Entity\Education", mappedBy="user")
       */

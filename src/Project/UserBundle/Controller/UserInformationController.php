@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Project\UserBundle\Entity\UserInformation;
 use Project\UserBundle\Form\UserInformationType;
+use Project\ExperienceBundle\Entity\Experience;
 
 /**
  * UserInformation controller.
@@ -110,16 +111,20 @@ class UserInformationController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('ProjectUserBundle:UserInformation')->find($id);
-
-        if (!$entity) {
+        $informations = $em->getRepository('ProjectUserBundle:UserInformation')->find($id);
+        $educations = $informations->getEducation();
+        $experiences = $informations->getExperience();
+        
+        if (!$informations) {
             throw $this->createNotFoundException('Unable to find UserInformation entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
-            'entity'      => $entity,
+            'entity'      => $informations,
+            'educations'  => $educations,
+            'experiences' => $experiences,
             'delete_form' => $deleteForm->createView(),
         );
     }
