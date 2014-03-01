@@ -20,7 +20,7 @@ class Education
     protected $id;
     
     /**
-    * @var \Project\UserBundle\Entity\User $user;
+    * @var \Project\UserBundle\Entity\UserInformation $user;
     * 
     * @ORM\ManyToOne(targetEntity="Project\UserBundle\Entity\UserInformation", inversedBy="education")
     * @ORM\JoinColumn(name="userinformation_id", referencedColumnName="id", onDelete="CASCADE")

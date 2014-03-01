@@ -62,6 +62,63 @@
             {% endfor %}
         </tbody>
     </table>
+    <h3>
+        Języki obce
+    </h3>
+</div>
+<div class="col-12 col-sm-12 col-lg-12">
+    <table class="table table-hover">
+        <tbody>
+            {% for language in languages %}
+                <tr>
+                    <th id="separator">{{ language.language }}</th>
+                    <td>{{ language.level }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h3>
+        Kursy i certyfikaty
+    </h3>
+</div>
+<div class="col-12 col-sm-12 col-lg-12">
+    <table class="table table-hover">
+        <tbody>
+            {% for course in courses %}
+                <tr>
+                    <td>{{ course.course }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h3>
+        Umiejętności
+    </h3>
+</div>
+<div class="col-12 col-sm-12 col-lg-12">
+    <table class="table table-hover">
+        <tbody>
+            {% for skill in skills %}
+                <tr>
+                    <td>{{ skill.skill }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h3>
+        Zainteresowania
+    </h3>
+</div>
+<div class="col-12 col-sm-12 col-lg-12">
+    <table class="table table-hover">
+        <tbody>
+            {% for hobby in hobbies %}
+                <tr>
+                    <td>{{ hobby.hobby }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 <div class="col-12 col-sm-12 col-lg-12">
 <ul class="record_actions">

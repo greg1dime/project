@@ -1,0 +1,43 @@
+<?php
+namespace Project\EducationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+ /**
+  * @ORM\Entity
+  * @ORM\Table(name="skills")
+  */
+class Skills
+{
+     /**
+      * @var integer $id;
+      * 
+      * @ORM\Id
+      * @ORM\Column(type="integer")
+      * @ORM\GeneratedValue(strategy="AUTO")
+      */
+    protected $id;
+    
+    /**
+    * @var \Project\UserBundle\Entity\User $user;
+    * 
+    * @ORM\ManyToOne(targetEntity="Project\UserBundle\Entity\UserInformation", inversedBy="skills")
+    * @ORM\JoinColumn(name="userinformation_id", referencedColumnName="id", onDelete="CASCADE")
+    */
+    protected $user;
+    
+    /**
+     * @var string $skill;
+     *
+     * @ORM\Column(type="string")
+     */   
+    protected $skill;
+        
+    /*
+     * ToString
+     */
+//    public function __toString()
+//    {
+//      return $this->getLanguage();
+//    }
+}

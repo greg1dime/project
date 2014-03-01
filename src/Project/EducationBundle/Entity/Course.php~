@@ -1,0 +1,44 @@
+<?php
+
+namespace Project\EducationBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+ /**
+  * @ORM\Entity
+  * @ORM\Table(name="courses")
+  */
+class Course
+{
+    /**
+      * @var integer $id;
+      * 
+      * @ORM\Id
+      * @ORM\Column(type="integer")
+      * @ORM\GeneratedValue(strategy="AUTO")
+      */
+    private $id;
+    
+    /**
+    * @var \Project\UserBundle\Entity\UserInformation $user;
+    * 
+    * @ORM\ManyToOne(targetEntity="Project\UserBundle\Entity\UserInformation", inversedBy="courses")
+    * @ORM\JoinColumn(name="userinformation_id", referencedColumnName="id", onDelete="CASCADE")
+    */
+    protected $user;
+
+    /**
+     * @var string $course;
+     *
+     * @ORM\Column(type="string")
+     */   
+    private $course;
+
+    /*
+     * ToString
+     */
+//    public function __toString()
+//    {
+//      return $this->getCourse();
+//    }
+}

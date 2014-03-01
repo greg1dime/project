@@ -38,14 +38,6 @@ class User
       * @ORM\OneToOne(targetEntity="UserInformation", mappedBy="user")
       **/
     protected $informations;
-    
-    /*
-     * ToString
-     */
-    public function __toString()
-    {
-      return $this->getLogin();
-    }
 
     /**
      * Get id
@@ -101,28 +93,5 @@ class User
     public function getPassword()
     {
         return $this->password;
-    }
-
-    /**
-     * Set informations
-     *
-     * @param \Project\UserBundle\Entity\UserInformation $informations
-     * @return User
-     */
-    public function setInformations(\Project\UserBundle\Entity\UserInformation $informations = null)
-    {
-        $this->informations = $informations;
-
-        return $this;
-    }
-
-    /**
-     * Get informations
-     *
-     * @return \Project\UserBundle\Entity\UserInformation 
-     */
-    public function getInformations()
-    {
-        return $this->informations;
     }
 }

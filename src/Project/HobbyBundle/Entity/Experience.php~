@@ -19,7 +19,7 @@ class Experience
     protected $id;
     
     /**
-    * @var \Project\UserBundle\Entity\UserInformation $user;
+    * @var \Project\UserBundle\Entity\User $user;
     * 
     * @ORM\ManyToOne(targetEntity="Project\UserBundle\Entity\UserInformation", inversedBy="experience")
     * @ORM\JoinColumn(name="userinformation_id", referencedColumnName="id", onDelete="CASCADE")

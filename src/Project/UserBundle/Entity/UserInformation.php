@@ -127,6 +127,34 @@ class UserInformation
       * @ORM\OneToMany(targetEntity="Project\EducationBundle\Entity\Education", mappedBy="user")
       */
     protected $education;
+    
+    /**
+      * @var ArrayCollection $languages;
+      * 
+      * @ORM\OneToMany(targetEntity="Project\EducationBundle\Entity\Language", mappedBy="user")
+      */
+    protected $languages;
+    
+    /**
+      * @var ArrayCollection $courses;
+      * 
+      * @ORM\OneToMany(targetEntity="Project\EducationBundle\Entity\Course", mappedBy="user")
+      */
+    protected $courses;
+    
+    /**
+      * @var ArrayCollection $skills;
+      * 
+      * @ORM\OneToMany(targetEntity="Project\EducationBundle\Entity\Skill", mappedBy="user")
+      */
+    protected $skills;
+    
+     /**
+      * @var ArrayCollection $hobbies;
+      * 
+      * @ORM\OneToMany(targetEntity="Project\HobbyBundle\Entity\Hobby", mappedBy="user")
+      */
+    protected $hobbies;
 
     /**
      * Constructor
@@ -518,5 +546,137 @@ class UserInformation
     public function getEducation()
     {
         return $this->education;
+    }
+
+    /**
+     * Add languages
+     *
+     * @param \Project\EducationBundle\Entity\Languages $languages
+     * @return UserInformation
+     */
+    public function addLanguage(\Project\EducationBundle\Entity\Languages $languages)
+    {
+        $this->languages[] = $languages;
+
+        return $this;
+    }
+
+    /**
+     * Remove languages
+     *
+     * @param \Project\EducationBundle\Entity\Languages $languages
+     */
+    public function removeLanguage(\Project\EducationBundle\Entity\Languages $languages)
+    {
+        $this->languages->removeElement($languages);
+    }
+
+    /**
+     * Get languages
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getLanguages()
+    {
+        return $this->languages;
+    }
+
+    /**
+     * Add courses
+     *
+     * @param \Project\EducationBundle\Entity\Courses $courses
+     * @return UserInformation
+     */
+    public function addCourse(\Project\EducationBundle\Entity\Courses $courses)
+    {
+        $this->courses[] = $courses;
+
+        return $this;
+    }
+
+    /**
+     * Remove courses
+     *
+     * @param \Project\EducationBundle\Entity\Courses $courses
+     */
+    public function removeCourse(\Project\EducationBundle\Entity\Courses $courses)
+    {
+        $this->courses->removeElement($courses);
+    }
+
+    /**
+     * Get courses
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCourses()
+    {
+        return $this->courses;
+    }
+
+    /**
+     * Add skills
+     *
+     * @param \Project\EducationBundle\Entity\Skill $skills
+     * @return UserInformation
+     */
+    public function addSkill(\Project\EducationBundle\Entity\Skill $skills)
+    {
+        $this->skills[] = $skills;
+
+        return $this;
+    }
+
+    /**
+     * Remove skills
+     *
+     * @param \Project\EducationBundle\Entity\Skill $skills
+     */
+    public function removeSkill(\Project\EducationBundle\Entity\Skill $skills)
+    {
+        $this->skills->removeElement($skills);
+    }
+
+    /**
+     * Get skills
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSkills()
+    {
+        return $this->skills;
+    }
+
+    /**
+     * Add hobbies
+     *
+     * @param \Project\HobbyBundle\Entity\Hobby $hobbies
+     * @return UserInformation
+     */
+    public function addHobby(\Project\HobbyBundle\Entity\Hobby $hobbies)
+    {
+        $this->hobbies[] = $hobbies;
+
+        return $this;
+    }
+
+    /**
+     * Remove hobbies
+     *
+     * @param \Project\HobbyBundle\Entity\Hobby $hobbies
+     */
+    public function removeHobby(\Project\HobbyBundle\Entity\Hobby $hobbies)
+    {
+        $this->hobbies->removeElement($hobbies);
+    }
+
+    /**
+     * Get hobbies
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getHobbies()
+    {
+        return $this->hobbies;
     }
 }

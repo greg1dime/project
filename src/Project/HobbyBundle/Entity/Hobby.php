@@ -1,13 +1,13 @@
 <?php
-namespace Project\EducationBundle\Entity;
+namespace Project\HobbyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
  /**
   * @ORM\Entity
-  * @ORM\Table(name="languages")
+  * @ORM\Table(name="hobbies")
   */
-class Languages
+class Hobby
 {
      /**
       * @var integer $id;
@@ -21,31 +21,24 @@ class Languages
     /**
     * @var \Project\UserBundle\Entity\User $user;
     * 
-    * @ORM\ManyToOne(targetEntity="Project\UserBundle\Entity\UserInformation", inversedBy="languages")
+    * @ORM\ManyToOne(targetEntity="Project\UserBundle\Entity\UserInformation", inversedBy="hobbies")
     * @ORM\JoinColumn(name="userinformation_id", referencedColumnName="id", onDelete="CASCADE")
     */
     protected $user;
     
     /**
-     * @var string $language;
+     * @var string $hobby;
      *
      * @ORM\Column(type="string")
      */   
-    protected $language;
-    
-    /**
-     * @var string $level;
-     *
-     * @ORM\Column(type="string")
-     */   
-    protected $level;
-    
+    protected $hobby;
+     
     /*
      * ToString
      */
     public function __toString()
     {
-      return $this->getLanguage();
+      return $this->getCompanyName();
     }
 
     /**
@@ -59,56 +52,33 @@ class Languages
     }
 
     /**
-     * Set language
+     * Set hobby
      *
-     * @param string $language
-     * @return Languages
+     * @param string $hobby
+     * @return Hobby
      */
-    public function setLanguage($language)
+    public function setHobby($hobby)
     {
-        $this->language = $language;
+        $this->hobby = $hobby;
 
         return $this;
     }
 
     /**
-     * Get language
+     * Get hobby
      *
      * @return string 
      */
-    public function getLanguage()
+    public function getHobby()
     {
-        return $this->language;
-    }
-
-    /**
-     * Set level
-     *
-     * @param string $level
-     * @return Languages
-     */
-    public function setLevel($level)
-    {
-        $this->level = $level;
-
-        return $this;
-    }
-
-    /**
-     * Get level
-     *
-     * @return string 
-     */
-    public function getLevel()
-    {
-        return $this->level;
+        return $this->hobby;
     }
 
     /**
      * Set user
      *
      * @param \Project\UserBundle\Entity\UserInformation $user
-     * @return Languages
+     * @return Hobby
      */
     public function setUser(\Project\UserBundle\Entity\UserInformation $user = null)
     {
